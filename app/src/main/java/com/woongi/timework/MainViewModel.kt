@@ -32,11 +32,11 @@ class MainViewModel(
     fun pickUp(item: Item) {
         item.stopTimer()
         _firstItem.value = (_firstItem.value + item).sortedBy { it.id }
-        _secondItem.value = _secondItem.value.filterNot { it.id == item.id }
+        _secondItem.value = _secondItem.value - item
     }
 
     fun remove(item: Item) {
         item.stopTimer()
-        _secondItem.value  = _secondItem.value.filterNot { it.id == item.id }
+        _secondItem.value  = _secondItem.value - item
     }
 }
