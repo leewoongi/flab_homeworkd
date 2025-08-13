@@ -25,7 +25,7 @@ class MainViewModel(
 
     fun throwAway(item: Item) {
         item.startTimer()
-        _firstItem.value = _firstItem.value.filterNot { it.id == item.id }
+        _firstItem.value = _firstItem.value - item
         _secondItem.value = (_secondItem.value + item).sortedBy { it.id }
     }
 
